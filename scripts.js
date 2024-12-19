@@ -1,4 +1,4 @@
-// Bot Configuration Handler
+// Blooket Bot Configuration Handler
 document.getElementById('bot-config-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -19,12 +19,12 @@ document.getElementById('bot-config-form')?.addEventListener('submit', function 
 
     // Save configuration to localStorage
     localStorage.setItem('botConfig', JSON.stringify(config));
-    currentConfig.textContent = `Bot Name: ${botName}, Response Speed: ${botSpeed} ms, Accuracy: ${botAccuracy}%, Number of Bots: ${numberOfBots}, Game PIN: ${gamePin}`;
+    currentConfig.textContent = `Blooket Bot Name: ${botName}, Response Speed: ${botSpeed} ms, Accuracy: ${botAccuracy}%, Number of Bots: ${numberOfBots}, Game PIN: ${gamePin}`;
 
-    alert('Bot configuration saved successfully!');
+    alert('Blooket Bot configuration saved successfully!');
 });
 
-// Bot Control Handlers
+// Blooket Bot Control Handlers
 const botStatus = document.getElementById('bot-status');
 const startBotsButton = document.getElementById('start-bots');
 const stopBotsButton = document.getElementById('stop-bots');
@@ -37,7 +37,7 @@ startBotsButton?.addEventListener('click', async function () {
         return;
     }
 
-    botStatus.innerHTML = '<p>Starting bots...</p>';
+    botStatus.innerHTML = '<p>Starting Blooket Bots...</p>';
 
     const numberOfBots = parseInt(botConfig.count, 10);
     let bots = [];
@@ -51,7 +51,7 @@ startBotsButton?.addEventListener('click', async function () {
         });
     }
 
-    botStatus.innerHTML = `<p>${bots.length} bots have joined the game with PIN ${botConfig.pin}:</p><ul>${bots.map(bot => `<li>${bot.name}</li>`).join('')}</ul>`;
+    botStatus.innerHTML = `<p>${bots.length} Blooket Bots have joined the game with PIN ${botConfig.pin}:</p><ul>${bots.map(bot => `<li>${bot.name}</li>`).join('')}</ul>`;
 
     // Simulate Backend Communication
     for (const bot of bots) {
@@ -82,5 +82,5 @@ startBotsButton?.addEventListener('click', async function () {
 
 stopBotsButton?.addEventListener('click', function () {
     botStatus.innerHTML = '<p>No bots active yet. Configure and start bots to see them here.</p>';
-    alert('All bots have been stopped.');
+    alert('All Blooket Bots have been stopped.');
 });
