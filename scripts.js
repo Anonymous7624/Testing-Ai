@@ -1,5 +1,3 @@
-// scripts.js
-
 // Bot Configuration Handler
 document.getElementById('bot-config-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -7,17 +5,21 @@ document.getElementById('bot-config-form')?.addEventListener('submit', function 
     const botName = document.getElementById('bot-name').value;
     const botSpeed = document.getElementById('bot-speed').value;
     const botAccuracy = document.getElementById('bot-accuracy').value;
+    const numberOfBots = document.getElementById('number-of-bots').value;
+    const gamePin = document.getElementById('game-pin').value;
     const currentConfig = document.getElementById('current-config');
 
     const config = {
         name: botName,
         speed: botSpeed,
         accuracy: botAccuracy,
+        pin: gamePin,
+        count: numberOfBots
     };
 
     // Save configuration to localStorage
     localStorage.setItem('botConfig', JSON.stringify(config));
-    currentConfig.textContent = `Bot Name: ${botName}, Response Speed: ${botSpeed} ms, Accuracy: ${botAccuracy}%`;
+    currentConfig.textContent = `Bot Name: ${botName}, Response Speed: ${botSpeed} ms, Accuracy: ${botAccuracy}%, Number of Bots: ${numberOfBots}, Game PIN: ${gamePin}`;
 
     alert('Bot configuration saved successfully!');
 });
@@ -38,7 +40,7 @@ startBotsButton?.addEventListener('click', function () {
     botStatus.innerHTML = '<p>Starting bots...</p>';
 
     // Simulate bots joining the game
-    const numberOfBots = 5; // For example, 5 bots
+    const numberOfBots = parseInt(botConfig.count, 10);
     let bots = [];
 
     for (let i = 0; i < numberOfBots; i++) {
@@ -46,11 +48,11 @@ startBotsButton?.addEventListener('click', function () {
             id: i + 1,
             name: `${botConfig.name}-${i + 1}`,
             speed: botConfig.speed,
-            accuracy: botConfig.accuracy,
+            accuracy: botConfig.accuracy
         });
     }
 
-    botStatus.innerHTML = `<p>${bots.length} bots have joined the game:</p><ul>${bots.map(bot => `<li>${bot.name}</li>`).join('')}</ul>`;
+    botStatus.innerHTML = `<p>${bots.length} bots have joined the game with PIN ${botConfig.pin}:</p><ul>${bots.map(bot => `<li>${bot.name}</li>`).join('')}</ul>`;
 });
 
 stopBotsButton?.addEventListener('click', function () {
