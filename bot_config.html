@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Configure Bot</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Start Quiz</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="bot_config.html">Configure Bot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Bot Settings</h2>
+            <form id="bot-config-form">
+                <label for="bot-name">Bot Name:</label><br>
+                <input type="text" id="bot-name" name="bot-name" required><br><br>
+
+                <label for="bot-speed">Response Speed (ms):</label><br>
+                <input type="number" id="bot-speed" name="bot-speed" min="100" max="5000" required><br><br>
+
+                <label for="bot-accuracy">Accuracy (%):</label><br>
+                <input type="number" id="bot-accuracy" name="bot-accuracy" min="0" max="100" required><br><br>
+
+                <button type="submit">Save Configuration</button>
+            </form>
+
+            <div id="bot-config-output">
+                <h3>Current Configuration</h3>
+                <p id="current-config">No configuration set.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kahoot Bot Helper</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
