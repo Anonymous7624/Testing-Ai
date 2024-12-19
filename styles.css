@@ -74,21 +74,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-/* Leaderboard Table */
-#leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#leaderboard-table th, #leaderboard-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-#leaderboard-table th {
-    background: #35424a;
-    color: #ffffff;
-}
